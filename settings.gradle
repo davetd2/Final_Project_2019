@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='CS_Final_Project2019'
