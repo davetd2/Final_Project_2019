@@ -38,8 +38,33 @@ public class MainActivity extends AppCompatActivity {
         generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                password = "adsfasdfsd";
+                String alpha = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                String special = "@%+/\'!#$^?:,(){}[]~-_.";
+                Random r = new Random();
+                String total;
+                int num;
+                String password = "";
+
+                boolean bounds = null;
+                int lowerBound = lb;
+                int upperBound = ub;
+                boolean specialChar = null;
+
+                if (specialChar) {
+                    total = alpha + special;
+                } else {
+                    total = alpha;
+                }
+                num = total.length();
+                int stop = 12;
+                if (bounds) {
+                    stop = upperBound;
+                }
+                for (int i = 0; i < stop; i++) {
+                    password += total.charAt(r.nextInt(num));
+                }
                 passwordText.setText(password);
+                
             }
         });
 
