@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     password += total.charAt(r.nextInt(num));
                 }
                 passwordText.setText(password);
-                
+
             }
         });
 
@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button saveButton = (Button) findViewById(R.id.saveButton);
-
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,11 +92,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button viewButton = findViewById(R.id.viewButton);
-
         viewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updateUI();
+                //updateUI();
 
                 Intent intent = new Intent(MainActivity.this, SaveActivity.class);
                 startActivity(intent);
@@ -105,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void updateUI() {
+    /*private void updateUI() {
         View saveScreen = getLayoutInflater().inflate(R.layout.second_screen, null);
         LinearLayout savedPasswords = (LinearLayout) saveScreen.findViewById(R.id.passwordsList);
         savedPasswords.removeAllViews();
@@ -137,8 +135,7 @@ public class MainActivity extends AppCompatActivity {
             });
 
             //add the chunk to the layout
-            passwordChunk.setVisibility(View.VISIBLE);
             savedPasswords.addView(passwordChunk);
         }
-    }
+    }*/
 }

@@ -25,7 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="29dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Insert Your Username"
@@ -36,53 +35,55 @@
         android:id="@+id/specialCharButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="40dp"
         android:text="Special Characters"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="310dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameText" />
 
     <EditText
         android:id="@+id/maxLength"
         android:layout_width="249dp"
         android:layout_height="44dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="13dp"
         android:ems="10"
         android:inputType="number"
         android:text="Enter Max Password Length"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="343dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/specialCharButton" />
 
     <Button
         android:id="@+id/pwGenerateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="200dp"
         android:layout_marginRight="200dp"
-        android:layout_marginBottom="8dp"
         android:text="Generate Password"
-        app:layout_constraintBottom_toTopOf="@+id/pwText"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/maxLength" />
 
     <EditText
         android:id="@+id/pwText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="160dp"
         android:layout_marginRight="160dp"
-        android:layout_marginBottom="112dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/saveButton"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="196dp"
-        android:layout_marginLeft="196dp"
-        android:layout_marginBottom="68dp"
-        android:text="Save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pwGenerateButton" />
 
     <Button
         android:id="@+id/viewButton"
@@ -91,7 +92,7 @@
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
         android:layout_marginBottom="68dp"
-        android:text="View"
+        android:text="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -101,7 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="175dp"
         android:layout_marginLeft="175dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="178dp"
         android:layout_marginRight="178dp"
         android:text="Generate Your Random Password"
