@@ -1,6 +1,8 @@
 package com.example.cs_final_project2019;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.os.Bundle;
 
@@ -14,6 +16,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+
+import android.widget.Toast;
+import java.util.Random;
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.telephony.SmsManager;
 
 import android.content.Intent;
 
@@ -34,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
         TextView passwordText = (TextView) findViewById(R.id.pwText);
 
         Button generateButton = (Button) findViewById(R.id.pwGenerateButton);
+        
+        shareButton.setEnabled(false);
+        if (checkPermission(Manifest.permission.SEND_SMS)) {
+            shareButton.setEnabled(true);
+        } else {
+            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.SEND_SMS}, SEND_SMS_PERMISSION_REUQEST_CODE);
+        }
 
         generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,5 +158,30 @@ public class MainActivity extends AppCompatActivity {
             passwordChunk.setVisibility(View.VISIBLE);
             savedPasswords.addView(passwordChunk);
         }
+    }
+    
+    public void onShare(View v) {
+        int phoneNumber = 0;//get phone number
+        String password = null;//get password
+        String phNumber = Integer.toString(phoneNumber);
+
+
+        if (phoneNumber < 8 || phoneNumber > 10 ) {
+            Toast.makeText(this, "Enter a valid phone number", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (checkPermission(Manifest.permission.SEND_SMS)) {
+            SmsManager smsmanager = SmsManager.getDefault();
+            smsmanager.sendTextMessage(phNumber , null, password, null,null);
+            Toast.makeText(this, "Message sent", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "message failed", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public boolean checkPermission(String check) {
+        int seek = ContextCompat.checkSelfPermission(this, check);
+        return (seek == PackageManager.PERMISSION_GRANTED);
     }
 }
