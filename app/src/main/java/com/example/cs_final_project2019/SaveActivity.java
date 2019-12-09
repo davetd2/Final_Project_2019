@@ -39,7 +39,7 @@ public class SaveActivity extends AppCompatActivity {
         if (checkPermission(Manifest.permission.SEND_SMS)) {
             sendButton.setEnabled(true);
         } else {
-            ActivityCompat.requestPermissions(SaveActivity.this, new String[] {Manifest.permission.SEND_SMS}, 1);
+            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.SEND_SMS}, 1);
         }
 
         EditText phoneNumView = findViewById(R.id.phoneNumView);
