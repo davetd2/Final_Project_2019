@@ -8,14 +8,14 @@ import android.os.Bundle;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 
 import android.widget.Toast;
 import java.util.Random;
@@ -37,9 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
         passwords = new ArrayList<>();
 
-        EditText websiteText = (EditText) findViewById(R.id.websiteText);
-        EditText usernameText = (EditText) findViewById(R.id.usernameText);
-        TextView passwordText = (TextView) findViewById(R.id.pwText);
+        EditText websiteText = findViewById(R.id.websiteText);
+        EditText usernameText = findViewById(R.id.usernameText);
+        TextView passwordText = findViewById(R.id.pwText);
 
         Button generateButton = (Button) findViewById(R.id.pwGenerateButton);
         
@@ -49,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
         } else {
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.SEND_SMS}, SEND_SMS_PERMISSION_REUQEST_CODE);
         }
+        Button generateButton = findViewById(R.id.pwGenerateButton);
+
+        RadioButton specialCharButton = findViewById(R.id.specialCharButton);
+        EditText maxLength = findViewById(R.id.maxLength);
 
         generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,10 +64,8 @@ public class MainActivity extends AppCompatActivity {
                 int num;
                 String password = "";
 
-                boolean bounds = null;
-                int lowerBound = lb;
-                int upperBound = ub;
-                boolean specialChar = null;
+                int upperBound = Integer.parseInt(maxLength.getText().toString());
+                boolean specialChar = specialCharButton.isChecked();
 
                 if (specialChar) {
                     total = alpha + special;
@@ -71,11 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     total = alpha;
                 }
                 num = total.length();
-                int stop = 12;
-                if (bounds) {
-                    stop = upperBound;
-                }
-                for (int i = 0; i < stop; i++) {
+                for (int i = 0; i < upperBound; i++) {
                     password += total.charAt(r.nextInt(num));
                 }
                 passwordText.setText(password);

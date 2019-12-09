@@ -32,14 +32,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/websiteText" />
 
+    <RadioButton
+        android:id="@+id/specialCharButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Special Characters"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="310dp" />
+
+    <EditText
+        android:id="@+id/maxLength"
+        android:layout_width="249dp"
+        android:layout_height="44dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="Enter Max Password Length"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="343dp" />
+
     <Button
         android:id="@+id/pwGenerateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="170dp"
-        android:layout_marginRight="170dp"
-        android:layout_marginBottom="43dp"
-        android:text="Generate"
+        android:layout_marginEnd="200dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginBottom="8dp"
+        android:text="Generate Password"
         app:layout_constraintBottom_toTopOf="@+id/pwText"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -47,9 +65,9 @@
         android:id="@+id/pwText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="113dp"
-        android:layout_marginRight="113dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginRight="160dp"
+        android:layout_marginBottom="112dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/saveButton"
@@ -59,9 +77,9 @@
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginStart="196dp"
+        android:layout_marginLeft="196dp"
+        android:layout_marginBottom="68dp"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -70,9 +88,9 @@
         android:id="@+id/viewButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="68dp"
         android:text="View"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
