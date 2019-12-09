@@ -30,15 +30,23 @@ public class SaveActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SaveActivity.this, MainActivity.class);
                 startActivity(intent);
+            }
+        });
 
-                Button sendButton = findViewById(R.id.sendButton);
+        Button sendButton = findViewById(R.id.sendButton);
 
-                sendButton.setEnabled(false);
-                if (checkPermission(Manifest.permission.SEND_SMS)) {
-                    sendButton.setEnabled(true);
-                } else {
-                    ActivityCompat.requestPermissions(SaveActivity.this, new String[] {Manifest.permission.SEND_SMS}, 1);
-                }
+        sendButton.setEnabled(false);
+        if (checkPermission(Manifest.permission.SEND_SMS)) {
+            sendButton.setEnabled(true);
+        } else {
+            ActivityCompat.requestPermissions(SaveActivity.this, new String[] {Manifest.permission.SEND_SMS}, 1);
+        }
+
+        EditText phoneNumView = findViewById(R.id.phoneNumView);
+        phoneNumView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                phoneNumView.setText("");
             }
         });
     }
