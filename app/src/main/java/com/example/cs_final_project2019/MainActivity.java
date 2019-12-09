@@ -79,20 +79,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button saveButton = (Button) findViewById(R.id.saveButton);
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String website = websiteText.getText().toString();
-                String username = usernameText.getText().toString();
-
-                Password newPass = new Password(website, username, password);
-                passwords.add(newPass);
-            }
-        });
-
-        Button viewButton = findViewById(R.id.viewButton);
-        viewButton.setOnClickListener(new View.OnClickListener() {
+        Button textButton = findViewById(R.id.textButton);
+        textButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //updateUI();
