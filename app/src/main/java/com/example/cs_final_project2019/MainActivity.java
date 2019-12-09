@@ -32,9 +32,7 @@ public class MainActivity extends AppCompatActivity {
         EditText websiteText = findViewById(R.id.websiteText);
         EditText usernameText = findViewById(R.id.usernameText);
         TextView passwordText = findViewById(R.id.pwText);
-
         Button generateButton = findViewById(R.id.pwGenerateButton);
-
         RadioButton specialCharButton = findViewById(R.id.specialCharButton);
         EditText maxLength = findViewById(R.id.maxLength);
 
@@ -48,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
                 int num;
                 String password = "";
 
-                int upperBound = Integer.parseInt(maxLength.getText().toString());
+                String upperBound = maxLength.getText().toString();
+                int upBound = 12;
                 boolean specialChar = specialCharButton.isChecked();
 
                 if (specialChar) {
@@ -57,7 +56,12 @@ public class MainActivity extends AppCompatActivity {
                     total = alpha;
                 }
                 num = total.length();
-                for (int i = 0; i < upperBound; i++) {
+
+                if(upperBound == null || upperBound.trim().equals("")) {
+                    upBound = Integer.parseInt(upperBound);
+                }
+
+                for (int i = 0; i < upBound; i++) {
                     password += total.charAt(r.nextInt(num));
                 }
                 passwordText.setText(password);
@@ -76,6 +80,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 usernameText.setText("");
+            }
+        });
+
+        maxLength.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                maxLength.setText("");
             }
         });
 

@@ -12,13 +12,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
         android:layout_marginLeft="88dp"
-        android:layout_marginTop="295dp"
+        android:layout_marginTop="204dp"
         android:layout_marginEnd="110dp"
         android:layout_marginRight="110dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Enter Phone Number"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
