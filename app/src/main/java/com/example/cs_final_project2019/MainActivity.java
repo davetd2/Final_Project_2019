@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 //updateUI();
 
                 Intent intent = new Intent(MainActivity.this, SaveActivity.class);
+                intent.putExtra("password", password);
                 startActivity(intent);
             }
         });

@@ -11,6 +11,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.util.Log;
+import android.net.Uri;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -39,8 +42,15 @@ public class SaveActivity extends AppCompatActivity {
         if (checkPermission(Manifest.permission.SEND_SMS)) {
             sendButton.setEnabled(true);
         } else {
-            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.SEND_SMS}, 1);
+            ActivityCompat.requestPermissions(SaveActivity.this, new String[] {Manifest.permission.SEND_SMS}, 1);
         }
+
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendSMS();
+            }
+        });
 
         EditText phoneNumView = findViewById(R.id.phoneNumView);
         phoneNumView.setOnClickListener(new View.OnClickListener() {
@@ -49,26 +59,6 @@ public class SaveActivity extends AppCompatActivity {
                 phoneNumView.setText("");
             }
         });
-    }
-
-    public void onShare(View v) {
-        EditText phoneNumView = findViewById(R.id.phoneNumView);
-        String phNumber = phoneNumView.getText().toString();
-        int phoneNumber = Integer.parseInt(phNumber);
-        String password = getIntent().getStringExtra("password");
-
-        if (phoneNumber < 8 || phoneNumber > 10 ) {
-            Toast.makeText(this, "Enter a valid phone number", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (checkPermission(Manifest.permission.SEND_SMS)) {
-            SmsManager smsmanager = SmsManager.getDefault();
-            smsmanager.sendTextMessage(phNumber , null, password, null,null);
-            Toast.makeText(this, "Message sent", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "message failed", Toast.LENGTH_SHORT).show();
-        }
     }
 
     public boolean checkPermission(String check) {
